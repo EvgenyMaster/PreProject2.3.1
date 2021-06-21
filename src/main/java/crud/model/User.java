@@ -1,7 +1,6 @@
-package web.model;
+package crud.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 
 @Entity
 @Table(name = "users_jm", schema = "crud_spring_jm")
@@ -10,7 +9,7 @@ public class User {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name", unique = true)
     private String name;
@@ -34,16 +33,16 @@ public class User {
         this.email = email;
     }
 
-    public User(long id, String name, String pass, String email) {
+    public User(int id, String name, String pass, String email) {
         this(name, pass, email);
         this.id = id;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
