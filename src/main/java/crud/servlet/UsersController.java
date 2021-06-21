@@ -19,8 +19,8 @@ public class UsersController {
         this.serviceDB = serviceDB;
     }
 
-    @GetMapping("/health")
-    public String health(){
+    @GetMapping("/healthCheck")
+    public String health() {
         return "Health";
     }
 
@@ -31,7 +31,7 @@ public class UsersController {
     }
 
     @GetMapping("/{id}")
-    public String getById(@PathVariable("id") int id, Model model){
+    public String getById(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", serviceDB.getUserById(id));
         return "userPage";
     }
@@ -42,19 +42,19 @@ public class UsersController {
     }
 
     @PostMapping(value = "/addUser")
-    public String addUser(@ModelAttribute("user") User user){
+    public String addUser(@ModelAttribute("user") User user) {
         serviceDB.insertUser(user);
         return "redirect:/";
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(Model model, @PathVariable("id") int id){
+    public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("user", serviceDB.getUserById(id));
         return "edit";
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute("user") User user){
+    public String update(@ModelAttribute("user") User user) {
         serviceDB.updateUser(user);
         return "redirect:/";
     }

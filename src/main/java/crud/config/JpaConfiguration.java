@@ -41,13 +41,6 @@ public class JpaConfiguration {
         return em;
     }
 
-//    @Bean(name = "entityManager")
-//    protected EntityManager entityManagerFactory() {
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("entityManager");
-//        EntityManager ecm = emf.createEntityManager();
-//        return ecm;
-//    }
-
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
